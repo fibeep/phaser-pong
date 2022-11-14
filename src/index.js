@@ -60,7 +60,7 @@ function create() {
 
     player2.setImmovable(true);
     player2.setCollideWorldBounds(true);
-    
+
     cursors = this.input.keyboard.createCursorKeys();
 
     this.physics.add.collider(ball, player1)
@@ -81,6 +81,8 @@ function update() {
 
     }
 
+
+    player1.body.setVelocityY(0)
     if (cursors.up.isDown) {
         player1.body.setVelocityY(-350)
     }
