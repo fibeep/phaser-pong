@@ -7,6 +7,11 @@ const config = {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
+    scene: {
+        preload,
+        create,
+        update
+    },
     physics: {
         default: 'arcade',
         arcade: {
@@ -14,3 +19,5 @@ const config = {
         }
     }
 }
+
+const game = new Phaser.Game(config)
