@@ -3,10 +3,10 @@ const config = {
     parent: 'game',
     width: 800,
     height: 640,
-    scale: {
-        mode: Phaser.Scale.RESIZE,
-        autoCenter: Phaser.Scale.CENTER_BOTH
-    },
+    // scale: {
+    //     mode: Phaser.Scale.RESIZE,
+    //     autoCenter: Phaser.Scale.CENTER_BOTH
+    // },
     scene: {
         preload,
         create,
@@ -21,10 +21,13 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
+let ball;
+let player1;
+
 
 function preload() {
-    this.load.image('ball', '../assets/images/ball.png');
-    this.load.image("ball", "../assets/images/paddle.png");
+    this.load.image("ball", "../assets / images/ball.png");
+    this.load.image("paddle", "../assets/images/paddle.png");
 }
 
 function create() {
@@ -32,6 +35,11 @@ function create() {
       this.physics.world.bounds.width / 2,
       this.physics.world.bounds.height / 2,
       'ball'
+    );
+    player1 = this.physics.add.sprite(
+        this.physics.world.bounds.width,
+        this.physics.world.bounds.height / 2,
+        "paddle"
     );
 }
 
