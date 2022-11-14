@@ -50,6 +50,7 @@ function create() {
     );
 
     player1.setImmovable(true)
+    player1.setCollideWorldBounds(true);
 
     player2 = this.physics.add.sprite(
         ball.body.width / 2 + 1,
@@ -58,7 +59,8 @@ function create() {
     );
 
     player2.setImmovable(true);
-
+    player2.setCollideWorldBounds(true);
+    
     cursors = this.input.keyboard.createCursorKeys();
 
     this.physics.add.collider(ball, player1)
