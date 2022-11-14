@@ -27,6 +27,7 @@ let player1;
 let player2;
 let gameStarted = false
 let cursors;
+const paddleSpeed = 350
 
 function preload() {
     this.load.image('ball', '../assets / images/ball.png');
@@ -84,12 +85,18 @@ function update() {
 
     player1.body.setVelocityY(0)
     if (cursors.up.isDown) {
-        player1.body.setVelocityY(-350)
+        player1.body.setVelocityY(-paddleSpeed)
     }
 
     if (cursors.down.isDown) {
-        player1.body.setVelocityY(350);
+        player1.body.setVelocityY(paddleSpeed);
     }
 
+    if (ball.body.velocity.y > paddleSpeed) {
+        ball.body.setVelocityY(paddleSpeed)
+    }
 
+    if (ball.body.velocity.y < -paddleSpeed) {
+        ball.body.setVelocityY(-paddleSpeed);
+    }
 }
