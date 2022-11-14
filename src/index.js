@@ -37,7 +37,13 @@ function create() {
       'ball'
     );
     player1 = this.physics.add.sprite(
-        this.physics.world.bounds.width,
+        this.physics.world.bounds.width - (ball.body.width / 2 + 1),
+        this.physics.world.bounds.height / 2,
+        "paddle"
+    );
+
+    player2 = this.physics.add.sprite(
+        ball.body.width / 2 + 1,
         this.physics.world.bounds.height / 2,
         "paddle"
     );
