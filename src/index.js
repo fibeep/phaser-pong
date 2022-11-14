@@ -47,11 +47,16 @@ function create() {
         "paddle"
     );
 
+    player1.setImmovable(true)
+
     player2 = this.physics.add.sprite(
         ball.body.width / 2 + 1,
         this.physics.world.bounds.height / 2,
         "paddle"
     );
+
+    player2.setImmovable(true);
+
 
     this.physics.add.collider(ball, player1)
     this.physics.add.collider(ball, player2);
