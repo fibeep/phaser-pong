@@ -21,3 +21,16 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
+
+function preload() {
+this.load.image('ball', '../assets/images/ball.png');
+this.load.image("ball", "../assets/images/paddle.png");
+}
+
+function create() {
+
+}
+
+function update() {
+
+}
