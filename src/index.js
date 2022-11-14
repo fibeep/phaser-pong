@@ -24,7 +24,7 @@ const game = new Phaser.Game(config)
 let ball;
 let player1;
 let player2;
-
+let gameStarted = false
 
 function preload() {
     this.load.image('ball', '../assets / images/ball.png');
@@ -37,6 +37,10 @@ function create() {
       this.physics.world.bounds.height / 2,
       'ball'
     );
+
+    ball.setCollideWorldBounds(true)
+    ball.setBounce(1, 1)
+
     player1 = this.physics.add.sprite(
         this.physics.world.bounds.width - (ball.body.width / 2 + 1),
         this.physics.world.bounds.height / 2,
@@ -48,13 +52,24 @@ function create() {
         this.physics.world.bounds.height / 2,
         "paddle"
     );
+
+    this.physics.add.collider(ball, player1)
+    this.physics.add.collider(ball, player2);
+
 }
 
 function update() {
 
-    const viX = 100
-    const viY = 100
-    ball.setVelocityX(viX)
-    ball.setVelocityY(viY)
+    if (!gameStarted) {
+
+    const viX = 100;
+    const viY = 100;
+    ball.setVelocityX(viX);
+    ball.setVelocityY(viY);
+
+    gameStarted = true;
+    }
+
+
 
 }
