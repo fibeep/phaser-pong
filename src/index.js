@@ -32,6 +32,11 @@ let cursors;
 const paddleSpeed = 350
 
 let keys = {};
+let p1win;
+let p2win;
+
+
+
 
 // Preloads assets (images)
 function preload() {
@@ -83,6 +88,21 @@ function create() {
   // Rule for ball and players to collide
   this.physics.add.collider(ball, player1);
   this.physics.add.collider(ball, player2);
+
+  // Text when winning
+  p1win = this.add.text(
+    this.physics.world.bounds.width / 2,
+    this.physics.world.bounds.height / 2,
+    'Player 1 Wins!'
+  )
+  p1win.setVisible(false)
+
+    p2win = this.add.text(
+        this.physics.world.bounds.width / 2,
+        this.physics.world.bounds.height / 2,
+        "Player 2 Wins!"
+    );
+    p2win.setVisible(false);
 }
 
 function update() {
@@ -90,14 +110,32 @@ function update() {
     // Checks if game started and adds initial conditions
     if (!gameStarted) {
      // Initial Velocities
-    const viX = 100;
-    const viY = 100;
+    const viX = (Math.random() * 100) + 100;
+    const viY = (Math.random() * 150) + 100;
     ball.setVelocityX(viX);
     ball.setVelocityY(viY);
 
     gameStarted = true;
 
     }
+
+    // Checks to see if ball is past player 1 or 2
+    // Sets winning conditions
+
+    if (ball.body.x > player1.body.x){
+        p2win.setVisible(true)
+        ball.setVelocityX(0)
+        ball.setVelocityY(0)
+    }
+
+
+  if (ball.body.x < player2.body.x) {
+    p1win.setVisible(true);
+        ball.setVelocityX(0);
+        ball.setVelocityY(0);
+  }
+
+
 
     // Player 1 Movement
     player1.body.setVelocityY(0)
