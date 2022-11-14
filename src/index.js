@@ -23,12 +23,16 @@ const config = {
 const game = new Phaser.Game(config)
 
 function preload() {
-this.load.image('ball', '../assets/images/ball.png');
-this.load.image("ball", "../assets/images/paddle.png");
+    this.load.image('ball', '../assets/images/ball.png');
+    this.load.image("ball", "../assets/images/paddle.png");
 }
 
 function create() {
-
+    ball = this.physics.add.sprite(
+      this.physics.world.bounds.width / 2,
+      this.physics.world.bounds.height / 2,
+      'ball'
+    );
 }
 
 function update() {
