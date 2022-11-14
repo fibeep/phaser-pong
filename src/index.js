@@ -23,10 +23,11 @@ const config = {
 const game = new Phaser.Game(config)
 let ball;
 let player1;
+let player2;
 
 
 function preload() {
-    this.load.image("ball", "../assets / images/ball.png");
+    this.load.image('ball', '../assets / images/ball.png');
     this.load.image("paddle", "../assets/images/paddle.png");
 }
 
@@ -50,5 +51,10 @@ function create() {
 }
 
 function update() {
+
+    const viX = 100
+    const viY = 100
+    ball.setVelocityX(viX)
+    ball.setVelocityY(viY)
 
 }
