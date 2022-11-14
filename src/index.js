@@ -40,8 +40,9 @@ let p2win;
 
 // Preloads assets (images)
 function preload() {
-    this.load.image('ball', '../assets / images/ball.png');
-    this.load.image("paddle", "../assets/images/paddle.png");
+    this.load.image(
+      "ball", './assets/images/ball.png');
+    this.load.image("paddle", "./assets/images/paddle.png");
 }
 
 function create() {
