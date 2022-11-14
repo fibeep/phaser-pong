@@ -21,10 +21,12 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
+
 let ball;
 let player1;
 let player2;
 let gameStarted = false
+let cursors;
 
 function preload() {
     this.load.image('ball', '../assets / images/ball.png');
@@ -57,6 +59,7 @@ function create() {
 
     player2.setImmovable(true);
 
+    cursors = this.input.keyboard.createCursorKeys();
 
     this.physics.add.collider(ball, player1)
     this.physics.add.collider(ball, player2);
@@ -73,8 +76,16 @@ function update() {
     ball.setVelocityY(viY);
 
     gameStarted = true;
+
     }
 
+    if (cursors.up.isDown) {
+        player1.body.setVelocityY(-350)
+    }
+
+    if (cursors.down.isDown) {
+        player1.body.setVelocityY(350);
+    }
 
 
 }
